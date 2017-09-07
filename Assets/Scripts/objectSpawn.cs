@@ -16,7 +16,7 @@ public class objectSpawn : MonoBehaviour {
 	void Update () {
         delay = delay - Time.deltaTime;
 
-        if(delay<=0)
+        if(delay<=0 && gameObject.activeInHierarchy == true)
         {
             int num = Random.Range(0, 1);
             Transform.Instantiate(arr[num], transform.position, transform.rotation);

@@ -13,6 +13,8 @@ public class EnemyController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         delay = 0;
+        groundEnemy.SetActive(false);
+        flyEnemy.SetActive(false);
 
 
 
@@ -20,6 +22,8 @@ public class EnemyController : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        
         delay = delay - Time.deltaTime;
         if (delay <= 0)
         {
@@ -35,7 +39,12 @@ public class EnemyController : MonoBehaviour {
                 flyEnemy.SetActive(true);
             }
             delay = timeDelay;
+           
         }
-        
+        if (gameObject.activeInHierarchy == false)
+        {
+            delay = 0;
+        }
+
     }
 }
