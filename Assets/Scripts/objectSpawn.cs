@@ -23,5 +23,9 @@ public class objectSpawn : MonoBehaviour {
 
             delay = timeDelay;
         }
+        if (gameObject.activeInHierarchy == false)
+        {
+            delay = 0;
+        }
 	}
 }
