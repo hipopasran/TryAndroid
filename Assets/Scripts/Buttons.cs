@@ -23,20 +23,20 @@ public class Buttons : MonoBehaviour {
             
         }
     }
-	void OnMouseDown()
-    {
+	//void OnMouseDown()
+ //   {
 
         
 
-    }
+ //   }
 
-    void OnMouseUp()
-    {
-        if (gameObject.name != "pause")
-        {
+ //   void OnMouseUp()
+ //   {
+ //       if (gameObject.name != "pause")
+ //       {
             
-        }
-    }
+ //       }
+ //   }
 
     void OnMouseUpAsButton()
     {
