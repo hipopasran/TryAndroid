@@ -90,7 +90,7 @@
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\SwipeTest.cs" />
     <Compile Include="Assets\Scripts\characterController.cs" />
-    <Compile Include="Assets\Scripts\gameManager.cs" />
+    <Compile Include="Assets\Scripts\MaxScore.cs" />
     <Compile Include="Assets\Scripts\objectController.cs" />
     <Compile Include="Assets\Scripts\objectSpawn.cs" />
   </ItemGroup>

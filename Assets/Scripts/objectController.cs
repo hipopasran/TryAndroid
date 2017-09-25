@@ -28,6 +28,8 @@ public class objectController : MonoBehaviour {
             
             Destroy(gameObject);
         }
+        
+        
 
     }
 }

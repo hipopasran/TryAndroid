@@ -6,9 +6,15 @@ public class EnemyController : MonoBehaviour {
 
     public GameObject groundEnemy;
     public GameObject flyEnemy;
+    public GameObject StartCoin;
+    public GameObject coins;
     public int enemyType;
     public float delay;
-    public float timeDelay = 3f;
+    public float timeDelay;
+
+    public GameObject[] arr;
+
+    public int NumberOfEnemy=0;
 
     // Use this for initialization
     void Start () {
@@ -24,22 +30,51 @@ public class EnemyController : MonoBehaviour {
     void Update () {
 
         
+        
         delay = delay - Time.deltaTime;
         if (delay <= 0)
         {
-            enemyType = Random.Range(1, 3);
-            if (enemyType == 1)
-            {
-                groundEnemy.SetActive(true);
-                flyEnemy.SetActive(false);
-            }
-            if (enemyType > 1)
+            enemyType = Random.Range(1, 10);
+            if (enemyType < 3)
             {
                 groundEnemy.SetActive(false);
-                flyEnemy.SetActive(true);
+                
+                
+                int num = Random.Range(0, 1);
+
+                
+                Transform.Instantiate(arr[num], flyEnemy.transform.position, transform.rotation);
+                NumberOfEnemy = NumberOfEnemy + 1;
             }
+            if (enemyType >= 3)
+            {
+                groundEnemy.SetActive(true);
+                
+                int num = Random.Range(0, 1);
+                int prep = Random.Range(1, 4);
+                for (int t = 0; t < prep; t++)
+                {
+                    Transform.Instantiate(arr[num], groundEnemy.transform.position, transform.rotation);
+                }
+                NumberOfEnemy = NumberOfEnemy + 1;
+            }
+            
+            timeDelay = Random.Range(2, 4);
+
             delay = timeDelay;
            
+        }
+
+        if(NumberOfEnemy >=4 && groundEnemy.active)
+        {
+            Transform.Instantiate(coins, StartCoin.transform.position, transform.rotation);
+            groundEnemy.SetActive(false);
+            //StartCoin.SetActive(true);
+            NumberOfEnemy = 0;
+        }
+        else if(NumberOfEnemy < 4)
+        {
+            StartCoin.SetActive(false);
         }
         if (gameObject.activeInHierarchy == false)
         {

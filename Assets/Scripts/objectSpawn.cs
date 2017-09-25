@@ -20,6 +20,7 @@ public class objectSpawn : MonoBehaviour {
         {
             int num = Random.Range(0, 1);
             Transform.Instantiate(arr[num], transform.position, transform.rotation);
+            
 
             delay = timeDelay;
         }

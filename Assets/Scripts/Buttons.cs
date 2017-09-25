@@ -7,7 +7,7 @@ public class Buttons : MonoBehaviour {
     
     public bool pause = false;
     //public string action;
-    public GameObject resume,restart,pause1,home,rating,pause_text;
+    public GameObject resume,restart,pause1,home,rating,pause_text,options;
    
     
     void Update()
@@ -23,20 +23,20 @@ public class Buttons : MonoBehaviour {
             
         }
     }
-	//void OnMouseDown()
- //   {
+    void OnMouseDown()
+    {
 
-        
 
- //   }
 
- //   void OnMouseUp()
- //   {
- //       if (gameObject.name != "pause")
- //       {
-            
- //       }
- //   }
+    }
+
+    void OnMouseUp()
+    {
+        if (gameObject.name != "pause")
+        {
+
+        }
+    }
 
     void OnMouseUpAsButton()
     {
@@ -54,18 +54,13 @@ public class Buttons : MonoBehaviour {
             case "restart":
                 Application.LoadLevel(Application.loadedLevel);
                 break;
-            case "resume":
-                Time.timeScale = 1;
-                pause_text.SetActive(false);
-                pause = false;
-                resume.SetActive(false);
-                restart.SetActive(false);
-                home.SetActive(false);
-                break;
+           
             case "pause":
                 if (pause == false)
                 {
+
                     Time.timeScale = 0;
+                    options.SetActive(true);
                     pause_text.SetActive(true);
                     pause = true;
                     resume.SetActive(true);
@@ -77,11 +72,21 @@ public class Buttons : MonoBehaviour {
                     Time.timeScale = 1;
                     
                     pause = false;
+                    options.SetActive(false);
                     resume.SetActive(false);
                     restart.SetActive(false);
                     home.SetActive(false);
                     pause_text.SetActive(false);
                 }
+                break;
+            case "resume":
+                Time.timeScale = 1;
+                options.SetActive(false);
+                pause_text.SetActive(false);
+                pause = false;
+                resume.SetActive(false);
+                restart.SetActive(false);
+                home.SetActive(false);
                 break;
         }
     }
