@@ -59,7 +59,7 @@ public class EnemyController : MonoBehaviour {
                 NumberOfEnemy = NumberOfEnemy + 1;
             }
             
-            timeDelay = Random.Range(2, 4);
+            timeDelay = Random.Range(2, 3);
 
             delay = timeDelay;
            

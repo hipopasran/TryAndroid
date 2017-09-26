@@ -8,8 +8,11 @@ public class Buttons : MonoBehaviour {
     public bool pause = false;
     //public string action;
     public GameObject resume,restart,pause1,home,rating,pause_text,options;
-   
-    
+    [SerializeField]
+    private SettingPopup settingPopup;
+    public bool activePopup=false;
+
+
     void Update()
     {
         if(Time.timeScale == 0)
@@ -87,6 +90,23 @@ public class Buttons : MonoBehaviour {
                 resume.SetActive(false);
                 restart.SetActive(false);
                 home.SetActive(false);
+                break;
+            case "options":
+                if (activePopup== false)
+                {
+                    pause_text.SetActive(false);
+                    settingPopup.Open();
+                    activePopup = true;
+
+
+                }
+                else if (activePopup == true)
+                {
+
+                    settingPopup.Close();
+                    pause_text.SetActive(true);
+                    activePopup = false;
+                }
                 break;
         }
     }

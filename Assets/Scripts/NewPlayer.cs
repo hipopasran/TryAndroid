@@ -23,7 +23,7 @@ public class NewPlayer : MonoBehaviour
     public int points = 0;
     public Text pointText;
 
-    public GameObject restart, home, ratimg, share;
+    public GameObject restart, home, ratimg, share,pause;
 
 
     // Use this for initialization
@@ -74,6 +74,7 @@ public class NewPlayer : MonoBehaviour
     {
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
+        
         rd.velocity = speed * Vector2.up;
     }
 
@@ -92,6 +93,7 @@ public class NewPlayer : MonoBehaviour
             share.SetActive(true);
             restart.SetActive(true);
             home.SetActive(true);
+            pause.SetActive(false);
             Destroy(gameObject);
 
         }
