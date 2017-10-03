@@ -12,10 +12,10 @@ public class SwipeTest : MonoBehaviour {
     float startTime;
     float endTime;
 
-    Vector3 startPos;
-    Vector3 endPos;
+  public  Vector2 startPos;
+   public Vector2 endPos;
 
-    float swipeDistance;
+   public float swipeDistance;
     float swipeTime;
 
 	// Update is called once per frame
@@ -25,25 +25,36 @@ public class SwipeTest : MonoBehaviour {
         {
             Touch touch = Input.GetTouch(0);
 
-            if(touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began)
             {
                 startTime = Time.time;
                 startPos = touch.position;
             }
-            else if(touch.phase == TouchPhase.Ended)
+            //else if (touch.phase == TouchPhase.Ended)
+            //{
+
+            //    endTime = Time.time;
+            //    endPos = touch.position;
+            
+            //    swipeDistance = (endPos - startPos).magnitude;
+            //    swipeTime = endTime - startTime;
+
+            //    //if (swipeTime < maxTime && swipeDistance > minSwipeDist)
+            //    //{
+            //    //    Swipe();
+            //    //}
+
+            //}
+            if ((startPos-touch.position).magnitude >= minSwipeDist)
             {
                 endTime = Time.time;
                 endPos = touch.position;
 
                 swipeDistance = (endPos - startPos).magnitude;
                 swipeTime = endTime - startTime;
-
-                if(swipeTime<maxTime && swipeDistance>minSwipeDist)
-                {
-                    Swipe();
-                }
-
+                Swipe();
             }
+
         }
 
 	}
@@ -51,10 +62,10 @@ public class SwipeTest : MonoBehaviour {
     void Swipe()
     {
         Vector2 distance = endPos - startPos;
-        if(Mathf.Abs(distance.x) > Mathf.Abs(distance.y))
+        if (Mathf.Abs(distance.x) > Mathf.Abs(distance.y))
         {
             Debug.Log("Horizontal Swipe");
-            if(distance.x>0)
+            if (distance.x > 0)
             {
                 Debug.Log("Right Swipe");
             }
@@ -67,16 +78,22 @@ public class SwipeTest : MonoBehaviour {
         else if (Mathf.Abs(distance.x) < Mathf.Abs(distance.y))
         {
             Debug.Log("Vertical Swipe");
-            if (distance.x > 0)
+            if (distance.y > 0)
             {
                 Debug.Log("Up Swipe");
+                //player.GetComponent<NewPlayer>().Jump();
                 player.GetComponent<NewPlayer>().Jump();
+                //player.GetComponent<NewPlayer>().Rotation();
+
 
 
             }
-            if (distance.x < 0)
+            if (distance.y < 0)
             {
                 Debug.Log("Down Swipe");
+                //player.GetComponent<TestPlayer>().Rotation();
+                player.GetComponent<NewPlayer>().Rotation();
+                //player.GetComponent<NewPlayer>().Jump();
             }
         }
 

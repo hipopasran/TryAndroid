@@ -5,13 +5,19 @@ using UnityEngine;
 public class Buttons : MonoBehaviour {
 
     
-    public bool pause = false;
+    public bool pause;
     //public string action;
-    public GameObject resume,restart,pause1,home,rating,pause_text,options;
+    public GameObject resume,restart,pause1,home,rating,pause_text,options,stats;
     [SerializeField]
     private SettingPopup settingPopup;
     public bool activePopup=false;
+    
 
+    //void Start()
+    //{
+    //    // pause = false;
+    //    Time.timeScale = 1;
+    //}
 
     void Update()
     {
@@ -26,20 +32,20 @@ public class Buttons : MonoBehaviour {
             
         }
     }
-    void OnMouseDown()
-    {
+    //void OnMouseDown()
+    //{
 
 
 
-    }
+    //}
 
-    void OnMouseUp()
-    {
-        if (gameObject.name != "pause")
-        {
+    //void OnMouseUp()
+    //{
+    //    if (gameObject.name != "pause")
+    //    {
 
-        }
-    }
+    //    }
+    //}
 
     void OnMouseUpAsButton()
     {
@@ -52,9 +58,13 @@ public class Buttons : MonoBehaviour {
                 Application.OpenURL("http://google.com");
                 break;
             case "home":
+                pause = false;
+                Time.timeScale = 1;
                 Application.LoadLevel("main");
                 break;
             case "restart":
+                pause = false;
+                Time.timeScale = 1;
                 Application.LoadLevel(Application.loadedLevel);
                 break;
            
@@ -72,29 +82,36 @@ public class Buttons : MonoBehaviour {
                 }
                else if(pause==true)
                 {
-                    Time.timeScale = 1;
-                    
+                    Time.timeScale = PlayerPrefs.GetFloat("GameScale");
+                    settingPopup.Close();
+                    rating.SetActive(false);
+                    stats.SetActive(false);
                     pause = false;
                     options.SetActive(false);
                     resume.SetActive(false);
                     restart.SetActive(false);
                     home.SetActive(false);
+
                     pause_text.SetActive(false);
                 }
                 break;
             case "resume":
-                Time.timeScale = 1;
+                Time.timeScale = PlayerPrefs.GetFloat("GameScale");
                 options.SetActive(false);
                 pause_text.SetActive(false);
                 pause = false;
                 resume.SetActive(false);
                 restart.SetActive(false);
                 home.SetActive(false);
+                settingPopup.Close();
                 break;
             case "options":
                 if (activePopup== false)
                 {
-                    pause_text.SetActive(false);
+                    if (Application.loadedLevelName == "play")
+                    {
+                        pause_text.SetActive(false);
+                    }
                     settingPopup.Open();
                     activePopup = true;
 
@@ -104,7 +121,11 @@ public class Buttons : MonoBehaviour {
                 {
 
                     settingPopup.Close();
-                    pause_text.SetActive(true);
+                    if (Application.loadedLevelName == "play")
+                    {
+                        pause_text.SetActive(true);
+                    }
+                   
                     activePopup = false;
                 }
                 break;

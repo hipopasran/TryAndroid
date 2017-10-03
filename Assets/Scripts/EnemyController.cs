@@ -11,6 +11,7 @@ public class EnemyController : MonoBehaviour {
     public int enemyType;
     public float delay;
     public float timeDelay;
+    public NewPlayer player;
 
     public GameObject[] arr;
 
@@ -43,7 +44,7 @@ public class EnemyController : MonoBehaviour {
                 int num = Random.Range(0, 1);
 
                 
-                Transform.Instantiate(arr[num], flyEnemy.transform.position, transform.rotation);
+                Transform.Instantiate(arr[1], flyEnemy.transform.position, transform.rotation);
                 NumberOfEnemy = NumberOfEnemy + 1;
             }
             if (enemyType >= 3)
@@ -54,12 +55,13 @@ public class EnemyController : MonoBehaviour {
                 int prep = Random.Range(1, 4);
                 for (int t = 0; t < prep; t++)
                 {
-                    Transform.Instantiate(arr[num], groundEnemy.transform.position, transform.rotation);
+                    Transform.Instantiate(arr[0], groundEnemy.transform.position, transform.rotation);
                 }
                 NumberOfEnemy = NumberOfEnemy + 1;
             }
             
             timeDelay = Random.Range(2, 3);
+            //timeDelay = Random.Range(1.2f, 1.5f);
 
             delay = timeDelay;
            

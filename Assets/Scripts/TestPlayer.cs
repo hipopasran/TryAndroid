@@ -32,6 +32,8 @@ public class TestPlayer : MonoBehaviour {
         Time.timeScale = 1;
         tr = GetComponent<Transform>();
 
+        tr.Rotate( Vector3.zero);
+
         grounded = GameObject.Find(this.name + "/grounded").transform;
     }
 
@@ -43,27 +45,33 @@ public class TestPlayer : MonoBehaviour {
        
 
 
-        if (rd.velocity == 0 * Vector2.up && IsGround == false)
-        {
-            rd.velocity = 2 * gravity * Vector2.up;
-            rd.gravityScale = 5;
-        }
+        //if (rd.velocity == 0 * Vector2.up && IsGround == false)
+        //{
+        //    rd.velocity = 2 * gravity * Vector2.up;
+        //    rd.gravityScale = 5;
+        //}
 
 
     }
    
-    
-
-    void OnMouseDown()
+    public void Rotation()
     {
-        StartCoroutine(Rot());
-
+       
+        
+            StartCoroutine(Rot());
+        
     }
+
+    ////void OnMouseDown()
+    ////{
+    ////    StartCoroutine(Rot());
+    ////    Jump();
+    ////}
 
     public void Jump()
     {
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
+        //AudioSource audio = GetComponent<AudioSource>();
+        //audio.Play();
 
         rd.velocity = speed * Vector2.up;
     }
@@ -81,17 +89,19 @@ public class TestPlayer : MonoBehaviour {
     //    //}
     //}
 
-    IEnumerator Rot()
+    public IEnumerator Rot()
     {
         Debug.Log(Time.time);
-        
+        if(telo.transform.localRotation.z==0)
+        {
             telo.Rotate(Vector3.forward * -90);
-        
+        }
         yield return new WaitForSeconds(1f);
         //else if (tr.rotation.z < 0)
-        //{ 
-        telo.Rotate(Vector3.forward * 90);
-        //}
+        if(telo.transform.rotation.z < 0)
+        {
+            telo.Rotate(Vector3.forward * 90);
+        }
         
         
         Debug.Log(Time.time);

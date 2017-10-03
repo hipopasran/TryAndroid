@@ -21,13 +21,10 @@ public class Runner2D : MonoBehaviour {
 	{
 		switch(SceneManager.GetActiveScene().name) // фильтр по имени сцен, чтобы в каждой из них, использовать свой набор шаблонов
 		{
-		case "Demo":
-			startSectionName = "Start/Level_01_Start"; // стартовый префаб платформы
-			sectionPath = "Level_01"; // папка, где лежат шаблоны для данной сцены
-			break;
+		
        case "play":
-                startSectionName = "Start/Sample 4"; // стартовый префаб платформы
-                sectionPath = "Level_01"; // папка, где лежат шаблоны для данной сцены
+                startSectionName = "Default/Level_01/backhell"; // стартовый префаб платформы
+                sectionPath = "Default/Level_01"; // папка, где лежат шаблоны для данной сцены
                 break;
         }
 	}

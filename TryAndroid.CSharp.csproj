@@ -79,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Buttons.cs" />
+    <Compile Include="Assets\Scripts\Coins_main.cs" />
     <Compile Include="Assets\Scripts\CreateEnemy.cs" />
     <Compile Include="Assets\Scripts\CubeFloat.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -94,9 +95,11 @@
     <Compile Include="Assets\Scripts\SwipeTest.cs" />
     <Compile Include="Assets\Scripts\TestPlayer.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\back_control.cs" />
     <Compile Include="Assets\Scripts\characterController.cs" />
     <Compile Include="Assets\Scripts\objectController.cs" />
     <Compile Include="Assets\Scripts\objectSpawn.cs" />
+    <Compile Include="Assets\Scripts\roadControll.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
