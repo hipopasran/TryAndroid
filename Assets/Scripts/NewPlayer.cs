@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
+
+using UnityEngine.Advertisements;
+
 public class NewPlayer : MonoBehaviour
 {
 
@@ -31,6 +36,7 @@ public class NewPlayer : MonoBehaviour
     public GameObject restart, home, ratimg, share,pause;
     Transform tr;
    
+    private static int adsCount=0;
 
     public GameObject gameover;
     public GameObject theme;
@@ -39,6 +45,16 @@ public class NewPlayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        if (Advertisement.isSupported)
+        {
+            Advertisement.Initialize("1566118", true);
+        }
+
+        Social.ReportProgress("CgkIv-vamLwREAIQAw", 100.0f, (bool success) => {
+            // Удачно или нет?
+        });
+
+
         coins = PlayerPrefs.GetInt("Coins");
         rd = GetComponent<Rigidbody2D>();
         Time.timeScale = 1;
@@ -80,13 +96,19 @@ public class NewPlayer : MonoBehaviour
         {
             points = points + 1;
         }
-        if(pointLevel+20==points && Time.timeScale!=0)
+        if((pointLevel+20)==points && Time.timeScale!=0)
         {
             pointLevel = points;
             GrowScale();
         }
         //StartCoroutine(FixedUpdate());
+        if(points/10==100)
+        {
+            Social.ReportProgress("CgkIv-vamLwREAIQAg", 100.0f, (bool success) => {
+                // Удачно или нет?
+            });
 
+        }
 
     }
     //public IEnumerator FixedUpdate()
@@ -143,6 +165,7 @@ public class NewPlayer : MonoBehaviour
 
     }
 
+   
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -172,9 +195,9 @@ public class NewPlayer : MonoBehaviour
             RIPaudio.Play();
 
         }
-        if(coll.transform.tag == "coins")
+        if (coll.transform.tag == "coins")
         {
-            
+
             Destroy(coll.gameObject);
             coins = coins + 1;
             //text.text = coins.ToString();
@@ -185,8 +208,17 @@ public class NewPlayer : MonoBehaviour
 
     void PlayerLose()
     {
+        adsCount++;
+        if (Advertisement.IsReady() && adsCount%6==0)
+        {
+            Advertisement.Show();
+        }
+
         if(PlayerPrefs.GetInt("Points") < points/10)
         {
+            Social.ReportScore(points/10, "CgkIv-vamLwREAIQAQ", (bool success) => {
+                // Удачно или нет?
+            });
             PlayerPrefs.SetInt("Points", points/10);
         }
         

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using GooglePlayGames;
+using UnityEngine.SocialPlatforms;
+
 public class Buttons : MonoBehaviour {
 
     
@@ -11,7 +14,7 @@ public class Buttons : MonoBehaviour {
     [SerializeField]
     private SettingPopup settingPopup;
     public bool activePopup=false;
-    
+   
 
     //void Start()
     //{
@@ -57,10 +60,18 @@ public class Buttons : MonoBehaviour {
             case "rating":
                 Application.OpenURL("http://google.com");
                 break;
+            case "stats":
+                //Social.ShowLeaderboardUI();
+                PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
+                
+                break;
             case "home":
                 pause = false;
                 Time.timeScale = 1;
                 Application.LoadLevel("main");
+                break;
+            case "shop":
+                Application.LoadLevel("shop");
                 break;
             case "restart":
                 pause = false;
