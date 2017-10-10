@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
 
 public class Buttons : MonoBehaviour {
@@ -14,13 +15,29 @@ public class Buttons : MonoBehaviour {
     [SerializeField]
     private SettingPopup settingPopup;
     public bool activePopup=false;
-   
 
-    //void Start()
-    //{
-    //    // pause = false;
-    //    Time.timeScale = 1;
-    //}
+   void Awake()
+    {
+        PlayGamesPlatform.Activate();
+    }
+
+    void Start()
+    {
+        //    // pause = false;
+        //    Time.timeScale = 1;
+
+        //PlayGamesPlatform.Activate();
+        if (!Social.localUser.authenticated)
+        {
+            Social.localUser.Authenticate((bool success) =>
+            {
+                // Удачно или нет?
+                if (success) print("123");
+                else print("456");
+            });
+        }
+
+    }
 
     void Update()
     {
@@ -61,9 +78,17 @@ public class Buttons : MonoBehaviour {
                 Application.OpenURL("http://google.com");
                 break;
             case "stats":
-                //Social.ShowLeaderboardUI();
-                PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
-                
+                if (Social.localUser.authenticated)
+                {
+                   
+                    //Social.ShowLeaderboardUI();
+                    //PlayGamesPlatform.Instance.ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
+                    ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
+                }
+                else
+                {
+                   // Application.LoadLevel("main");
+                }
                 break;
             case "home":
                 pause = false;
@@ -71,6 +96,11 @@ public class Buttons : MonoBehaviour {
                 Application.LoadLevel("main");
                 break;
             case "shop":
+
+                Social.ReportProgress("CgkIv-vamLwREAIQBg", 100.0f, (bool success) => {
+                    // Удачно или нет?
+                });
+
                 Application.LoadLevel("shop");
                 break;
             case "restart":
@@ -80,6 +110,11 @@ public class Buttons : MonoBehaviour {
                 break;
            
             case "pause":
+
+                Social.ReportProgress("CgkIv-vamLwREAIQBQ", 100.0f, (bool success) => {
+                    // Удачно или нет?
+                });
+
                 if (pause == false)
                 {
 

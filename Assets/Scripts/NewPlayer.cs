@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using GooglePlayGames;
+using GooglePlayGames.BasicApi;
 using UnityEngine.SocialPlatforms;
 
 using UnityEngine.Advertisements;
@@ -45,6 +46,8 @@ public class NewPlayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        PlayGamesPlatform.Activate();
+
         if (Advertisement.isSupported)
         {
             Advertisement.Initialize("1566118", true);
@@ -108,6 +111,12 @@ public class NewPlayer : MonoBehaviour
                 // Удачно или нет?
             });
 
+        }
+        if(points/10==50)
+        {
+            Social.ReportProgress("CgkIv-vamLwREAIQBA", 100.0f, (bool success) => {
+                // Удачно или нет?
+            });
         }
 
     }
@@ -209,12 +218,12 @@ public class NewPlayer : MonoBehaviour
     void PlayerLose()
     {
         adsCount++;
-        if (Advertisement.IsReady() && adsCount%6==0)
+        if (Advertisement.IsReady() && adsCount % 6 == 0)
         {
             Advertisement.Show();
         }
 
-        if(PlayerPrefs.GetInt("Points") < points/10)
+        if (PlayerPrefs.GetInt("Points") < points/10)
         {
             Social.ReportScore(points/10, "CgkIv-vamLwREAIQAQ", (bool success) => {
                 // Удачно или нет?

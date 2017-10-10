@@ -9,7 +9,7 @@ using UnityEngine.SocialPlatforms;
 public class GameScript : MonoBehaviour {
 
 	// Use this for initialization
-	void Start () {
+	void Awake() {
         PlayGamesPlatform.Activate();
 
         Social.localUser.Authenticate((bool success) => {
@@ -17,10 +17,9 @@ public class GameScript : MonoBehaviour {
             if (success) print("123");
             else print("456");
         });
+
+        
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	
 }

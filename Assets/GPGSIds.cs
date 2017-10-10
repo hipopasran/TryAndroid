@@ -25,8 +25,11 @@
 public static class GPGSIds
 {
         public const string achievement_play_one_game = "CgkIv-vamLwREAIQAw"; // <GPGSID>
+        public const string achievement_go_to_shopping = "CgkIv-vamLwREAIQBg"; // <GPGSID>
         public const string achievement_score_100_points = "CgkIv-vamLwREAIQAg"; // <GPGSID>
         public const string leaderboard_leaderboards = "CgkIv-vamLwREAIQAQ"; // <GPGSID>
+        public const string achievement_score_50_points = "CgkIv-vamLwREAIQBA"; // <GPGSID>
+        public const string achievement_pause_pls = "CgkIv-vamLwREAIQBQ"; // <GPGSID>
 
 }
 
