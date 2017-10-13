@@ -273,6 +273,7 @@
     <Compile Include="Assets\GooglePlayGames\Platforms\PlayGamesClientFactory.cs" />
     <Compile Include="Assets\GooglePlayGames\Platforms\TokenClient.cs" />
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
+    <Compile Include="Assets\Scripts\ButtonAnim.cs" />
     <Compile Include="Assets\Scripts\Buttons.cs" />
     <Compile Include="Assets\Scripts\Coins_main.cs" />
     <Compile Include="Assets\Scripts\CreateEnemy.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Assets\Scripts\GameScript.cs" />
     <Compile Include="Assets\Scripts\MaxScore.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
+    <Compile Include="Assets\Scripts\NativeShareScript.cs" />
     <Compile Include="Assets\Scripts\NewPlayer.cs" />
     <Compile Include="Assets\Scripts\Runner2D.cs" />
     <Compile Include="Assets\Scripts\SettingPopup.cs" />
@@ -291,6 +293,7 @@
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\SwipeTest.cs" />
     <Compile Include="Assets\Scripts\TestPlayer.cs" />
+    <Compile Include="Assets\Scripts\TextFade.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\Scripts\back_control.cs" />
     <Compile Include="Assets\Scripts\characterController.cs" />
