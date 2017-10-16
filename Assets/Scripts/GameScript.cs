@@ -12,11 +12,16 @@ public class GameScript : MonoBehaviour {
 	void Awake() {
         PlayGamesPlatform.Activate();
 
-        Social.localUser.Authenticate((bool success) => {
-            // Удачно или нет?
-            if (success) print("123");
-            else print("456");
-        });
+
+        //if (!Social.localUser.authenticated)
+        //{
+        //    Social.localUser.Authenticate((bool success) =>
+        //    {
+        //        // Удачно или нет?
+        //        if (success) print("123");
+        //        else print("456");
+        //    });
+        //}
 
         
     }

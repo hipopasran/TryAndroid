@@ -50,7 +50,7 @@ public class NewPlayer : MonoBehaviour
 
         if (Advertisement.isSupported)
         {
-            Advertisement.Initialize("1566118", true);
+            Advertisement.Initialize("1566118", false);
         }
 
         Social.ReportProgress("CgkIv-vamLwREAIQAw", 100.0f, (bool success) => {

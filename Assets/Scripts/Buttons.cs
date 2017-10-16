@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour {
     
     public bool pause;
     //public string action;
-    public GameObject resume,restart,pause1,home,rating,pause_text,options,stats;
+    public GameObject resume,restart,pause1,home,rating,pause_text,options,stats,rate,vk,facebook,achiv,services;
     [SerializeField]
     private SettingPopup settingPopup;
     public bool activePopup=false;
@@ -28,13 +28,25 @@ public class Buttons : MonoBehaviour {
         //    Time.timeScale = 1;
 
         //PlayGamesPlatform.Activate();
-        if (!Social.localUser.authenticated)
+        if (!Social.localUser.authenticated && services.activeInHierarchy==false)
         {
             Social.localUser.Authenticate((bool success) =>
             {
                 // Удачно или нет?
-                if (success) print("123");
-                else print("456");
+                if (success)
+                {
+                    achiv.SetActive(true);
+                    stats.SetActive(true);
+                    services.SetActive(false);
+                    print("123");
+                }
+                else if(!success && Application.loadedLevel==0)
+                {
+                    achiv.SetActive(false);
+                    stats.SetActive(false);
+                    services.SetActive(true);
+                    print("456");
+                }
             });
         }
 
@@ -72,6 +84,33 @@ public class Buttons : MonoBehaviour {
     {
         switch (gameObject.name)
         {
+            case "achiv":
+                Social.ShowAchievementsUI();
+                break;
+            case "services":
+                Social.localUser.Authenticate((bool success) =>
+                {
+                    // Удачно или нет?
+                    if (success)
+                    {
+                        achiv.SetActive(true);
+                        stats.SetActive(true);
+                        services.SetActive(false);
+                        print("123");
+                    }
+                    else print("456");
+                });
+                break;
+            case "facebook":
+                Application.OpenURL("https://www.facebook.com/groups/1172761489491919/");
+                break;
+            case "vk":
+                Application.OpenURL("https://vk.com/denoustudio");
+                break;
+            case "rate":
+                Application.OpenURL("market://details?id=com.KedaVladimir.Helljump");
+                break;
+
             case "play":
                 Application.LoadLevel("play");
                 break;
