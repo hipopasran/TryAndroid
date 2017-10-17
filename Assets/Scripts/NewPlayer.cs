@@ -40,6 +40,7 @@ public class NewPlayer : MonoBehaviour
     private static int adsCount=0;
 
     public GameObject gameover;
+    public GameObject coinsSound;
     public GameObject theme;
 
 
@@ -67,6 +68,7 @@ public class NewPlayer : MonoBehaviour
         tr.Rotate(Vector3.zero);
 
         grounded = GameObject.Find(this.name + "/grounded").transform;
+
     }
 
     // Update is called once per frame
@@ -185,7 +187,8 @@ public class NewPlayer : MonoBehaviour
             AudioSource themeMusic = theme.GetComponent<AudioSource>();
             themeMusic.Stop();
 
-
+            AudioSource RIPaudio = gameover.GetComponent<AudioSource>();
+            RIPaudio.Play();
 
             PlayerLose();
             score_death.text = "YOURE SCORE: " + (points/10).ToString();
@@ -198,15 +201,19 @@ public class NewPlayer : MonoBehaviour
             pause.SetActive(false);
             Destroy(gameObject);
             pointText.text = "";
-           
 
-            AudioSource RIPaudio = gameover.GetComponent<AudioSource>();
-            RIPaudio.Play();
+
+            //AudioSource RIPaudio = gameover.GetComponent<AudioSource>();
+            //RIPaudio.Play();
 
         }
         if (coll.transform.tag == "coins")
         {
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.Stop();
 
+            AudioSource cSound = coinsSound.GetComponent<AudioSource>();
+            cSound.Play();
             Destroy(coll.gameObject);
             coins = coins + 1;
             //text.text = coins.ToString();

@@ -12,7 +12,7 @@ public class Buttons : MonoBehaviour {
     
     public bool pause;
     //public string action;
-    public GameObject resume,restart,pause1,home,rating,pause_text,options,stats,rate,vk,facebook,achiv,services;
+    public GameObject resume,restart,pause1,home,rating,pause_text,options,stats,rate,vk,facebook,achiv,services,sign_out;
     [SerializeField]
     private SettingPopup settingPopup;
     public bool activePopup=false;
@@ -28,26 +28,60 @@ public class Buttons : MonoBehaviour {
         //    Time.timeScale = 1;
 
         //PlayGamesPlatform.Activate();
-        if (!Social.localUser.authenticated && services.activeInHierarchy==false)
+
+        //    if (!Social.localUser.authenticated && services.activeInHierarchy==false)
+        //    {
+        //        Social.localUser.Authenticate((bool success) =>
+        //        {
+        //           // Удачно или нет ?
+        //            if (success)
+        //            {
+        //                achiv.SetActive(true);
+        //                stats.SetActive(true);
+        //                services.SetActive(false);
+        //                sign_out.SetActive(true);
+        //                print("123");
+        //            }
+        //            else if (!success && Application.loadedLevel == 0)
+        //            {
+
+        //                achiv.SetActive(false);
+        //                stats.SetActive(false);
+        //                services.SetActive(true);
+        //                print("456");
+        //                sign_out.SetActive(false);
+        //            }
+        //});
+        //    }
+        if (!Social.localUser.authenticated)
         {
-            Social.localUser.Authenticate((bool success) =>
+            if (Application.loadedLevel == 0)
             {
-                // Удачно или нет?
-                if (success)
-                {
-                    achiv.SetActive(true);
-                    stats.SetActive(true);
-                    services.SetActive(false);
-                    print("123");
-                }
-                else if(!success && Application.loadedLevel==0)
-                {
-                    achiv.SetActive(false);
-                    stats.SetActive(false);
-                    services.SetActive(true);
-                    print("456");
-                }
-            });
+                achiv.SetActive(false);
+                stats.SetActive(false);
+                services.SetActive(true);
+                print("456");
+                sign_out.SetActive(false);
+            }
+            if(Application.loadedLevel==1)
+            {
+                sign_out.SetActive(false);
+            }
+        }
+        else
+        {
+            if (Application.loadedLevel == 0)
+            {
+                achiv.SetActive(true);
+                stats.SetActive(true);
+                services.SetActive(false);
+                sign_out.SetActive(true);
+                print("123");
+            }
+            if(Application.loadedLevel==1)
+            {
+                sign_out.SetActive(true);
+            }
         }
 
     }
@@ -87,6 +121,14 @@ public class Buttons : MonoBehaviour {
             case "achiv":
                 Social.ShowAchievementsUI();
                 break;
+            case "sign_out":
+                PlayGamesPlatform.Instance.SignOut();
+                achiv.SetActive(false);
+                stats.SetActive(false);
+                services.SetActive(true);
+                sign_out.SetActive(false);
+                break;
+
             case "services":
                 Social.localUser.Authenticate((bool success) =>
                 {
@@ -97,6 +139,7 @@ public class Buttons : MonoBehaviour {
                         stats.SetActive(true);
                         services.SetActive(false);
                         print("123");
+                        sign_out.SetActive(true);
                     }
                     else print("456");
                 });
@@ -127,7 +170,24 @@ public class Buttons : MonoBehaviour {
                 }
                 else
                 {
-                   // Application.LoadLevel("main");
+                    Social.localUser.Authenticate((bool success) =>
+                    {
+                        // Удачно или нет?
+                        if (success)
+                        {
+
+                            services.SetActive(false);
+                            print("123");
+                            sign_out.SetActive(true);
+                            ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
+                        }
+                        else
+                        {
+                            sign_out.SetActive(false);
+                            print("456");
+                        }
+                    });
+                    // Application.LoadLevel("main");
                 }
                 break;
             case "home":
