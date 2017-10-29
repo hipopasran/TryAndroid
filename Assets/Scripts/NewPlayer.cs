@@ -43,11 +43,15 @@ public class NewPlayer : MonoBehaviour
     public GameObject coinsSound;
     public GameObject theme;
 
+    public int animType = 2;
+    public Animator anim;
+
 
     // Use this for initialization
     void Start()
     {
         PlayGamesPlatform.Activate();
+        anim = GetComponent<Animator>();
 
         if (Advertisement.isSupported)
         {
@@ -79,6 +83,19 @@ public class NewPlayer : MonoBehaviour
         pointText.text = (points/10).ToString();
         text.text =" "+ coins.ToString();
 
+
+        if (animType == 1)
+        {
+            anim.Play("run");
+        }
+        else if (animType == 2)
+        {
+            anim.Play("doctor");
+        }
+        else
+        {
+            anim.Play("sherif");
+        }
 
         //if(tr.transform.position.y==jumpHight.position.y)
         //{

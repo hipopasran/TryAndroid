@@ -19,14 +19,18 @@ public class TestPlayer : MonoBehaviour {
     public LayerMask layerMask;
 
     public int points = 0;
-   
 
+    public int animType=2;
+    public Animator anim;
     
 
 
     // Use this for initialization
     void Start()
     {
+        anim = GetComponent<Animator>();
+        
+
         coins = PlayerPrefs.GetInt("Coins");
         rd = GetComponent<Rigidbody2D>();
         Time.timeScale = 1;
@@ -42,7 +46,18 @@ public class TestPlayer : MonoBehaviour {
     {
         IsGround = Physics2D.Linecast(transform.position, grounded.position, layerMask);
 
-       
+       if(animType==1)
+        {
+            anim.Play("run");
+        }
+       else if(animType==2)
+        {
+            anim.Play("doctor");
+        }
+       else
+        {
+            anim.Play("sherif");
+        }
 
 
         //if (rd.velocity == 0 * Vector2.up && IsGround == false)

@@ -289,6 +289,7 @@
     <Compile Include="Assets\Scripts\Runner2D.cs" />
     <Compile Include="Assets\Scripts\SettingPopup.cs" />
     <Compile Include="Assets\Scripts\Settings.cs" />
+    <Compile Include="Assets\Scripts\ShopButton.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\Swipe.cs" />
     <Compile Include="Assets\Scripts\SwipeTest.cs" />
@@ -300,6 +301,9 @@
     <Compile Include="Assets\Scripts\objectController.cs" />
     <Compile Include="Assets\Scripts\objectSpawn.cs" />
     <Compile Include="Assets\Scripts\roadControll.cs" />
+    <Compile Include="Assets\Sprites\Texture\Shop_Models\ScrollObjects.cs" />
+    <Compile Include="Assets\Sprites\Texture\Shop_Models\SelectModel.cs" />
+    <Compile Include="Assets\Sprites\Texture\player_run\sawScriptNew.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GooglePlayGames\Editor\GPGSDependencies.xml" />
