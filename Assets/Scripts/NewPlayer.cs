@@ -83,7 +83,14 @@ public class NewPlayer : MonoBehaviour
         pointText.text = (points/10).ToString();
         text.text =" "+ coins.ToString();
 
-        anim.Play(PlayerPrefs.GetString("AnimType"));
+        if (PlayerPrefs.GetString("AnimType") != "")
+        {
+            anim.Play(PlayerPrefs.GetString("AnimType"));
+        }
+        else
+        {
+            anim.Play("Knight");
+        }
         //if (animType == 1)
         //{
         //    anim.Play("run");
