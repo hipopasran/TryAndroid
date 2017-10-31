@@ -46,6 +46,8 @@ public class NewPlayer : MonoBehaviour
     public int animType = 2;
     public Animator anim;
 
+    public GameObject Death;
+    public GameObject EnemtCntrl;
 
     // Use this for initialization
     void Start()
@@ -207,6 +209,7 @@ public class NewPlayer : MonoBehaviour
 
         if (coll.transform.tag == "enemy")
         {
+            EnemtCntrl.SetActive(false);
 
             AudioSource themeMusic = theme.GetComponent<AudioSource>();
             themeMusic.Stop();
@@ -217,13 +220,16 @@ public class NewPlayer : MonoBehaviour
             PlayerLose();
             score_death.text = "YOURE SCORE: " + (points/10).ToString();
             score_death.gameObject.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             ratimg.SetActive(true);
             share.SetActive(true);
             restart.SetActive(true);
             home.SetActive(true);
             pause.SetActive(false);
+            
+            Death.transform.position = gameObject.transform.position;
             Destroy(gameObject);
+            Death.SetActive(true);
             pointText.text = "";
 
 
