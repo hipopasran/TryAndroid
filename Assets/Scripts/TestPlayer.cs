@@ -44,20 +44,21 @@ public class TestPlayer : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        IsGround = Physics2D.Linecast(transform.position, grounded.position, layerMask);
 
-       if(animType==1)
-        {
-            anim.Play("run");
-        }
-       else if(animType==2)
-        {
-            anim.Play("doctor");
-        }
-       else
-        {
-            anim.Play("sherif");
-        }
+        IsGround = Physics2D.Linecast(transform.position, grounded.position, layerMask);
+        anim.Play(PlayerPrefs.GetString("AnimType"));
+        //if(animType==1)
+        // {
+        //     anim.Play("run");
+        // }
+        //else if(animType==2)
+        // {
+        //     anim.Play("doctor");
+        // }
+        //else
+        // {
+        //     anim.Play("sherif");
+        // }
 
 
         //if (rd.velocity == 0 * Vector2.up && IsGround == false)

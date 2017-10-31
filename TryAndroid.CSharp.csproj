@@ -276,6 +276,7 @@
     <Compile Include="Assets\Scripts\ButtonAnim.cs" />
     <Compile Include="Assets\Scripts\Buttons.cs" />
     <Compile Include="Assets\Scripts\Coins_main.cs" />
+    <Compile Include="Assets\Scripts\CostOfModel.cs" />
     <Compile Include="Assets\Scripts\CreateEnemy.cs" />
     <Compile Include="Assets\Scripts\CubeFloat.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
@@ -283,6 +284,7 @@
     <Compile Include="Assets\Scripts\GameControll.cs" />
     <Compile Include="Assets\Scripts\GameScript.cs" />
     <Compile Include="Assets\Scripts\MaxScore.cs" />
+    <Compile Include="Assets\Scripts\ModelColor.cs" />
     <Compile Include="Assets\Scripts\MusicManager.cs" />
     <Compile Include="Assets\Scripts\NativeShareScript.cs" />
     <Compile Include="Assets\Scripts\NewPlayer.cs" />

@@ -175,11 +175,11 @@ public class Buttons : MonoBehaviour {
                         // Удачно или нет?
                         if (success)
                         {
-
+                            ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
                             services.SetActive(false);
                             print("123");
                             sign_out.SetActive(true);
-                            ((PlayGamesPlatform)Social.Active).ShowLeaderboardUI("CgkIv-vamLwREAIQAQ");
+                            
                         }
                         else
                         {

@@ -1,31 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SelectModel : MonoBehaviour {
 
     public string nowModel;
+    public GameObject ModelInTrigger;
 
     public GameObject selectModel, buyModel, chooseModel;
-    
+    public Text NameOfModel;
+    public Text Cost;
+   
+
 
     void Awake()
     {
-       
+        //PlayerPrefs.SetInt("Coins", 1000);
+        //PlayerPrefs.SetString("рыцарь2", "");
+        //PlayerPrefs.SetString("run", "");
+        //PlayerPrefs.SetString("Doctor", "");
+        //PlayerPrefs.SetString("Sherif", "");
+        //PlayerPrefs.SetString("AnimType", "Knight");
+        //PlayerPrefs.SetString("Redskin", "");
+        //PlayerPrefs.SetString("Security guard", "");
+        //PlayerPrefs.SetString("Pirate", "");
+        //PlayerPrefs.SetString("Ninja", "");
+        //PlayerPrefs.SetString("Fashionable guy", "");
 
 
-            if (PlayerPrefs.GetString("рыцарь2") != "Choose" || PlayerPrefs.GetString("рыцарь2") == "")
+        if (PlayerPrefs.GetString("Knight") != "Choose" || PlayerPrefs.GetString("Knight") == "")
             {
-                PlayerPrefs.SetString("рыцарь2", "Choose");
+                PlayerPrefs.SetString("Knight", "Choose");
             }
        
-        if (PlayerPrefs.GetString("рыцарь2") == "Open")
+        if (PlayerPrefs.GetString("Knight") == "Open")
         {
             chooseModel.SetActive(false);
             selectModel.SetActive(true);
             buyModel.SetActive(false);
+            
         }
-        else if (PlayerPrefs.GetString("рыцарь2") == "Choose")
+        else if (PlayerPrefs.GetString("Knight") == "Choose")
         {
             selectModel.SetActive(false);
             buyModel.SetActive(false);
@@ -35,10 +51,26 @@ public class SelectModel : MonoBehaviour {
 
     }
 
-	void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
-
+        
         nowModel = other.gameObject.name;
+        if (other.gameObject.name != "Scroll Objects")
+        {
+            ModelInTrigger = other.gameObject;
+            NameOfModel.text = other.gameObject.name;
+
+            if (PlayerPrefs.GetString(other.gameObject.name)!="")
+            {
+                Cost.text = "";
+            }
+            else
+            {
+                Cost.text = "500";
+            }
+        }
+
+
 
         other.transform.localScale += new Vector3(0.5f, 0.5f);
         if(PlayerPrefs.GetString(other.gameObject.name)=="Open")
