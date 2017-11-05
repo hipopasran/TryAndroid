@@ -60,6 +60,10 @@ public class NewPlayer : MonoBehaviour
             Advertisement.Initialize("1566118", false);
         }
 
+        
+       
+
+
         Social.ReportProgress("CgkIv-vamLwREAIQAw", 100.0f, (bool success) => {
             // Удачно или нет?
         });
@@ -80,6 +84,9 @@ public class NewPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        
+
         IsGround = Physics2D.Linecast(transform.position, grounded.position, layerMask);
 
         pointText.text = (points/10).ToString();
@@ -210,6 +217,10 @@ public class NewPlayer : MonoBehaviour
         if (coll.transform.tag == "enemy")
         {
             EnemtCntrl.SetActive(false);
+            if (GameObject.FindGameObjectsWithTag("Audio").Length > 0)
+            {
+              Destroy(GameObject.Find("mainMusic"));
+            }
 
             AudioSource themeMusic = theme.GetComponent<AudioSource>();
             themeMusic.Stop();

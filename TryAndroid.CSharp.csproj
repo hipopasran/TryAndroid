@@ -280,6 +280,7 @@
     <Compile Include="Assets\Scripts\CreateEnemy.cs" />
     <Compile Include="Assets\Scripts\CubeFloat.cs" />
     <Compile Include="Assets\Scripts\DeathAnim.cs" />
+    <Compile Include="Assets\Scripts\DontDestroy.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\Scripts\GameControll.cs" />

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ModelColor : MonoBehaviour {
     void Start() {
-       // PlayerPrefs.SetInt(gameObject.name + "active",0);
+        //PlayerPrefs.SetInt(gameObject.name + "active", 0);
 
     }
 	
