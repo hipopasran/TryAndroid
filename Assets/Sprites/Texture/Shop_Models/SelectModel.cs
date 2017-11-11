@@ -31,7 +31,10 @@ public class SelectModel : MonoBehaviour {
 
         PlayerPrefs.SetString("Scroll Objects", "");
 
-
+        if (PlayerPrefs.GetString("AnimType") != "Knight")
+        {
+            PlayerPrefs.SetString("Knight", "Open");
+        }
 
         // if ((PlayerPrefs.GetString("Knight") != "Choose" && PlayerPrefs.GetString("Knight") != "Open") || PlayerPrefs.GetString("Knight") == "")
         if ( PlayerPrefs.GetString("Knight") == "")
@@ -65,7 +68,7 @@ public class SelectModel : MonoBehaviour {
             ModelInTrigger = other.gameObject;
             NameOfModel.text = other.gameObject.name;
 
-            if (PlayerPrefs.GetString(other.gameObject.name)!="")
+            if (PlayerPrefs.GetString(other.gameObject.name) != "")
             {
                 Cost.text = "";
             }
@@ -73,30 +76,32 @@ public class SelectModel : MonoBehaviour {
             {
                 Cost.text = "500";
             }
-        }
+            other.transform.localScale += new Vector3(0.5f, 0.5f);
 
 
 
-        other.transform.localScale += new Vector3(0.5f, 0.5f);
-        if(PlayerPrefs.GetString(other.gameObject.name)=="Open")
-        {
-            chooseModel.SetActive(false);
-            selectModel.SetActive(true);
-            buyModel.SetActive(false);
-        }
-        else if(PlayerPrefs.GetString(other.gameObject.name)=="Choose")
-        {
-            selectModel.SetActive(false);
-            buyModel.SetActive(false);
-            chooseModel.SetActive(true);
 
-        }
-        else if((PlayerPrefs.GetString(other.gameObject.name) != "Choose")&&(PlayerPrefs.GetString(other.gameObject.name)!="Open") && (other.gameObject.name !="Scroll Objects"))
-        {
-            selectModel.SetActive(false);
-            buyModel.SetActive(true);
-            chooseModel.SetActive(false);
+            //other.transform.localScale += new Vector3(0.5f, 0.5f);
+            if (PlayerPrefs.GetString(other.gameObject.name) == "Open")
+            {
+                chooseModel.SetActive(false);
+                selectModel.SetActive(true);
+                buyModel.SetActive(false);
+            }
+            else if (PlayerPrefs.GetString(other.gameObject.name) == "Choose")
+            {
+                selectModel.SetActive(false);
+                buyModel.SetActive(false);
+                chooseModel.SetActive(true);
 
+            }
+            else if ((PlayerPrefs.GetString(other.gameObject.name) != "Choose") && (PlayerPrefs.GetString(other.gameObject.name) != "Open") && (other.gameObject.name != "Scroll Objects"))
+            {
+                selectModel.SetActive(false);
+                buyModel.SetActive(true);
+                chooseModel.SetActive(false);
+
+            }
         }
     }
     //void OnTriggerStay(Collider2D other)
@@ -126,6 +131,7 @@ public class SelectModel : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
+
         other.transform.localScale -= new Vector3(0.5f, 0.5f);
     }
 }
