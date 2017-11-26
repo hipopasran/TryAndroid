@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour {
     public int enemyType;
     public float delay;
     public float timeDelay;
-    public NewPlayer player;
+    //public NewPlayer player;
     public int prep;
     public int num;
 

@@ -18,11 +18,11 @@ public class ShopButton : MonoBehaviour {
         switch(gameObject.name)
         {
             case "buy":
-                if(PlayerPrefs.GetInt("Coins")>=500)
+                if(PlayerPrefs.GetInt("Coins")>=350)
                 {
                     AudioSource audio =whichModel.GetComponent<AudioSource>();
                     audio.Play();
-                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 500);
+                    PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 350);
                     PlayerPrefs.SetString(whichModel.GetComponent<SelectModel>().nowModel, "Choose");
                     PlayerPrefs.SetString(PlayerPrefs.GetString("AnimType"), "Open");
                     PlayerPrefs.SetString("AnimType",  whichModel.GetComponent<SelectModel>().nowModel);

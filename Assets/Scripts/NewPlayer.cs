@@ -49,16 +49,17 @@ public class NewPlayer : MonoBehaviour
     public GameObject Death;
     public GameObject EnemtCntrl;
 
+    public GameObject boots;
     // Use this for initialization
     void Start()
     {
         PlayGamesPlatform.Activate();
         anim = GetComponent<Animator>();
 
-        if (Advertisement.isSupported)
-        {
-            Advertisement.Initialize("1566118", false);
-        }
+        //if (Advertisement.isSupported)
+        //{
+        //    Advertisement.Initialize("1566118", false);
+        //}
 
         
        
@@ -71,7 +72,9 @@ public class NewPlayer : MonoBehaviour
 
         coins = PlayerPrefs.GetInt("Coins");
         rd = GetComponent<Rigidbody2D>();
-        Time.timeScale = 1;
+        Time.timeScale = 1.3f;
+
+        pointLevel = points;
 
         tr = GetComponent<Transform>();
 
@@ -79,13 +82,17 @@ public class NewPlayer : MonoBehaviour
 
         grounded = GameObject.Find(this.name + "/grounded").transform;
 
+        PlayerPrefs.SetFloat("GameScale", Time.timeScale);
+
+        Debug.Log(Time.timeScale);
+
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        
+
 
         IsGround = Physics2D.Linecast(transform.position, grounded.position, layerMask);
 
@@ -122,7 +129,7 @@ public class NewPlayer : MonoBehaviour
         {
             //rd.velocity =  gravity * Vector2.up;
            // rd.velocity = gravity * Vector2.up;
-            rd.gravityScale = 1.3f;
+            rd.gravityScale = 1.2f;
             //Time.timeScale = 2;
         }
         else
@@ -132,15 +139,27 @@ public class NewPlayer : MonoBehaviour
         //Time.timeScale = 1f;
         if (Time.timeScale != 0)
         {
-            points = points + 1;
+            if (points < 2500)
+            {
+                points = points + 3;
+            }
+            else
+            {
+                points = points + 2;
+            }
         }
-        if((pointLevel+20)==points && Time.timeScale!=0)
+        if ((pointLevel + 100) <= points && Time.timeScale != 0)
         {
             pointLevel = points;
             GrowScale();
+
         }
+        //if(Time.timeScale!=0)
+        //{
+        //    GrowScale();
+        //}
         //StartCoroutine(FixedUpdate());
-        if(points/10==100)
+        if (points/10==100)
         {
             Social.ReportProgress("CgkIv-vamLwREAIQAg", 100.0f, (bool success) => {
                 // Удачно или нет?
@@ -177,18 +196,25 @@ public class NewPlayer : MonoBehaviour
     //}
     public void GrowScale()
     {
-        if (points < 100)
-        {
-            Time.timeScale = Time.timeScale + 0.02f;
-            gameScale = Time.timeScale;
-            PlayerPrefs.SetFloat("GameScale", Time.timeScale);
-        }
-        if(points>=1500)
-        {
-            Time.timeScale = Time.timeScale + 0.01f;
-            gameScale = Time.timeScale;
-            PlayerPrefs.SetFloat("GameScale", Time.timeScale);
-        }
+        //if (points < 100)
+        //{
+        //    Time.timeScale = Time.timeScale + 0.02f;
+        //    gameScale = Time.timeScale;
+        //    PlayerPrefs.SetFloat("GameScale", Time.timeScale);
+        //    Debug.Log(Time.timeScale);
+        //}
+        //if(points>=1500)
+        //{
+        //    Time.timeScale = Time.timeScale + 0.01f;
+        //    gameScale = Time.timeScale;
+        //    PlayerPrefs.SetFloat("GameScale", Time.timeScale);
+        //    Debug.Log(Time.timeScale);
+        //}
+
+        Time.timeScale = 1.2f + (Mathf.Sqrt(points/10)) / 100;
+        gameScale = Time.timeScale;
+        PlayerPrefs.SetFloat("GameScale", Time.timeScale);
+        Debug.Log(Time.timeScale);
     }
 
     public void Jump()
@@ -209,7 +235,7 @@ public class NewPlayer : MonoBehaviour
 
     }
 
-   
+
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -261,15 +287,20 @@ public class NewPlayer : MonoBehaviour
             PlayerPrefs.SetInt("Coins", coins);
         }
 
+        if (coll.transform.tag=="boots")
+        {
+            boots.SetActive(true);
+        }
+
     }
 
     void PlayerLose()
     {
         adsCount++;
-        if (Advertisement.IsReady() && adsCount % 6 == 0)
-        {
-            Advertisement.Show();
-        }
+        //if (Advertisement.IsReady() && adsCount % 6 == 0)
+        //{
+        //    Advertisement.Show();
+        //}
 
         if (PlayerPrefs.GetInt("Points") < points/10)
         {
@@ -284,7 +315,7 @@ public class NewPlayer : MonoBehaviour
     }
     public IEnumerator Rot()
     {
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
         if (telo.transform.localRotation.z == 0)
         {
             telo.Rotate(Vector3.forward * -90);
@@ -297,6 +328,6 @@ public class NewPlayer : MonoBehaviour
         }
 
 
-        Debug.Log(Time.time);
+        //Debug.Log(Time.time);
     }
 }

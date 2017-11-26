@@ -74,7 +74,7 @@ public class SelectModel : MonoBehaviour {
             }
             else
             {
-                Cost.text = "500";
+                Cost.text = "350";
             }
             other.transform.localScale += new Vector3(0.5f, 0.5f);
 

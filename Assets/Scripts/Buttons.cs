@@ -16,6 +16,7 @@ public class Buttons : MonoBehaviour {
     [SerializeField]
     private SettingPopup settingPopup;
     public bool activePopup=false;
+    public GameObject Tutor;
 
    void Awake()
     {
@@ -260,6 +261,7 @@ public class Buttons : MonoBehaviour {
                     }
                     settingPopup.Open();
                     activePopup = true;
+                    Tutor.SetActive(false);
 
 
                 }

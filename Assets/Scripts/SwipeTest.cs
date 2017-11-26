@@ -64,25 +64,26 @@ public class SwipeTest : MonoBehaviour {
         Vector2 distance = endPos - startPos;
         if (Mathf.Abs(distance.x) > Mathf.Abs(distance.y))
         {
-            Debug.Log("Horizontal Swipe");
+           // Debug.Log("Horizontal Swipe");
             if (distance.x > 0)
             {
-                Debug.Log("Right Swipe");
+               // Debug.Log("Right Swipe");
             }
             if (distance.x < 0)
             {
-                Debug.Log("Left Swipe");
+               // Debug.Log("Left Swipe");
             }
 
         }
         else if (Mathf.Abs(distance.x) < Mathf.Abs(distance.y))
         {
-            Debug.Log("Vertical Swipe");
+           // Debug.Log("Vertical Swipe");
             if (distance.y > 0)
             {
-                Debug.Log("Up Swipe");
+                //  Debug.Log("Up Swipe");
                 //player.GetComponent<NewPlayer>().Jump();
                 player.GetComponent<NewPlayer>().Jump();
+                //player.GetComponent<JumpPlayer>().Jump();
                 //player.GetComponent<NewPlayer>().Rotation();
 
 
@@ -93,6 +94,7 @@ public class SwipeTest : MonoBehaviour {
                 Debug.Log("Down Swipe");
                 //player.GetComponent<TestPlayer>().Rotation();
                 player.GetComponent<NewPlayer>().Rotation();
+                //player.GetComponent<JumpPlayer>().Rotation();
                 //player.GetComponent<NewPlayer>().Jump();
             }
         }
