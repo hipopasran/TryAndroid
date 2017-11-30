@@ -99,6 +99,11 @@ public class NewPlayer : MonoBehaviour
         pointText.text = (points/10).ToString();
         text.text =" "+ coins.ToString();
 
+        //if(boots.activeInHierarchy)
+        //{
+        //    BootsLifetime();
+        //}
+
         if (PlayerPrefs.GetString("AnimType") != "")
         {
             anim.Play(PlayerPrefs.GetString("AnimType"));
@@ -242,6 +247,7 @@ public class NewPlayer : MonoBehaviour
 
         if (coll.transform.tag == "enemy")
         {
+            boots.SetActive(false);
             EnemtCntrl.SetActive(false);
             if (GameObject.FindGameObjectsWithTag("Audio").Length > 0)
             {
@@ -290,6 +296,7 @@ public class NewPlayer : MonoBehaviour
         if (coll.transform.tag=="boots")
         {
             boots.SetActive(true);
+            Destroy(coll.gameObject);
         }
 
     }
@@ -329,5 +336,16 @@ public class NewPlayer : MonoBehaviour
 
 
         //Debug.Log(Time.time);
+    }
+    public void BootsLifetime()
+    {
+        StartCoroutine(BootsAlive());
+      
+    }
+    public IEnumerator BootsAlive()
+    {
+
+        yield return new WaitForSeconds(15f);
+        boots.SetActive(false);
     }
 }

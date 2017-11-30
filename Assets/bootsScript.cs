@@ -4,23 +4,35 @@ using UnityEngine;
 
 public class bootsScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public GameObject player;
+	    // Use this for initialization
+	    void Start () {
 		
-	}
+	    }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+	    // Update is called once per frame
+	    void Update () {
+        
 
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if(coll.transform.tag=="enemy")
+        player.GetComponent<NewPlayer>().BootsLifetime();
+
+        
+
+    }
+
+        void OnCollisionEnter2D(Collision2D coll)
         {
-            Destroy(coll.gameObject);
+            if(coll.transform.tag=="enemy")
+            {
+                Destroy(coll.gameObject);
+            }
+            
         }
 
-
-    }
-    }
+        //public IEnumerator Alive()
+        //{
+                    
+        //    yield return new WaitForSeconds(15f);
+           
+        //}
+}
