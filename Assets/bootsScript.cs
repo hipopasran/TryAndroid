@@ -5,9 +5,10 @@ using UnityEngine;
 public class bootsScript : MonoBehaviour {
 
     public GameObject player;
+    public GameObject bootsIcon;
 	    // Use this for initialization
 	    void Start () {
-		
+        //bootsIcon.SetActive(true);
 	    }
 	
 	    // Update is called once per frame

@@ -8,9 +8,13 @@ public class EnemyController : MonoBehaviour {
     public GameObject flyEnemy;
     public GameObject StartCoin;
     public GameObject coins;
+    public GameObject StartBonus;
+    public GameObject BootsBonus;
     public int enemyType;
     public float delay;
     public float timeDelay;
+
+    public GameObject boots;
     //public NewPlayer player;
     public int prep;
     public int num;
@@ -18,6 +22,7 @@ public class EnemyController : MonoBehaviour {
     public GameObject[] arr;
 
     public int NumberOfEnemy=0;
+    public int NumberForBonus=0;
 
     // Use this for initialization
     void Start () {
@@ -41,13 +46,14 @@ public class EnemyController : MonoBehaviour {
             if (enemyType < 3)
             {
                 groundEnemy.SetActive(false);
-                
+                flyEnemy.SetActive(true);
                 
                 num = Random.Range(0, 1);
 
                 
                 Transform.Instantiate(arr[3], flyEnemy.transform.position, transform.rotation);
                 NumberOfEnemy = NumberOfEnemy + 1;
+                NumberForBonus = NumberForBonus + 1;
             }
             if (enemyType >= 3)
             {
@@ -119,6 +125,14 @@ public class EnemyController : MonoBehaviour {
             delay = timeDelay;
            
         }
+
+        if((NumberForBonus >=3 && flyEnemy.activeInHierarchy))
+        {
+            Transform.Instantiate(BootsBonus, StartBonus.transform.position, transform.rotation);
+            flyEnemy.SetActive(false);
+            NumberForBonus = 0;
+        }
+       
 
         if(NumberOfEnemy >=4 && groundEnemy.activeInHierarchy)
         {

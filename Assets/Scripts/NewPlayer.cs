@@ -50,6 +50,7 @@ public class NewPlayer : MonoBehaviour
     public GameObject EnemtCntrl;
 
     public GameObject boots;
+    public GameObject BootsIcon;
     // Use this for initialization
     void Start()
     {
@@ -296,6 +297,7 @@ public class NewPlayer : MonoBehaviour
         if (coll.transform.tag=="boots")
         {
             boots.SetActive(true);
+            BootsIcon.SetActive(true);
             Destroy(coll.gameObject);
         }
 
