@@ -6,18 +6,35 @@ public class bootsScript : MonoBehaviour {
 
     public GameObject player;
     public GameObject bootsIcon;
+    float time;
+    public float TimeAmt = 15;
 	    // Use this for initialization
 	    void Start () {
-        //bootsIcon.SetActive(true);
+        time = TimeAmt;
 	    }
 	
 	    // Update is called once per frame
 	    void Update () {
         
 
-        player.GetComponent<NewPlayer>().BootsLifetime();
+        //player.GetComponent<NewPlayer>().BootsLifetime();
+        if (time > 0)
+        {
+            time -= Time.deltaTime;
+            
+        }
+        else
+        {
+            Start();
+            this.gameObject.SetActive(false);
+        }
+       
+        if(!player.activeInHierarchy)
+        {
+            Start();
+            this.gameObject.SetActive(false);
+        }
 
-        
 
     }
 

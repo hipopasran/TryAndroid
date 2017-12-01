@@ -126,7 +126,7 @@ public class EnemyController : MonoBehaviour {
            
         }
 
-        if((NumberForBonus >=3 && flyEnemy.activeInHierarchy))
+        if(NumberForBonus >=3 && (flyEnemy.activeInHierarchy && !boots.activeInHierarchy))
         {
             Transform.Instantiate(BootsBonus, StartBonus.transform.position, transform.rotation);
             flyEnemy.SetActive(false);

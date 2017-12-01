@@ -13,7 +13,7 @@ public class DeathAnim : MonoBehaviour {
         //rb.AddForce(GetComponent<Transform>().up*10f, ForceMode2D.Impulse);
         int x = Random.Range(-1, 1);
         int y = Random.Range(-1, 1);
-        rb.AddForce(new Vector2(x,y) * 10f, ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(x,y) * 2.5f, ForceMode2D.Impulse);
 
     }
 	
