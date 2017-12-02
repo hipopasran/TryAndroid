@@ -6,6 +6,10 @@ public class bootsScript : MonoBehaviour {
 
     public GameObject player;
     public GameObject bootsIcon;
+    public GameObject AfterJump;
+    public GameObject AfJumpPos;
+
+    public GameObject activeBoots;
     float time;
     public float TimeAmt = 15;
 	    // Use this for initialization
@@ -26,12 +30,14 @@ public class bootsScript : MonoBehaviour {
         else
         {
             Start();
+            activeBoots.transform.localPosition = new Vector3(0, 0, -10);
             this.gameObject.SetActive(false);
         }
        
         if(!player.activeInHierarchy)
         {
             Start();
+            activeBoots.transform.localPosition = new Vector3(0, 0, -10);
             this.gameObject.SetActive(false);
         }
 
@@ -44,9 +50,12 @@ public class bootsScript : MonoBehaviour {
             {
                 Destroy(coll.gameObject);
             }
+            if (coll.transform.tag=="ground" && time<14)
+            {
+                 Transform.Instantiate(AfterJump, AfJumpPos.transform.position, AfterJump.transform.rotation);
+            }
+    }
             
-        }
-
         //public IEnumerator Alive()
         //{
                     

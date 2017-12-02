@@ -222,6 +222,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BootsAnimRun.cs" />
     <Compile Include="Assets\bootsIcon.cs" />
     <Compile Include="Assets\bootsScript.cs" />
     <Compile Include="Assets\DontDestroySnow.cs" />

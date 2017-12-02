@@ -46,6 +46,9 @@ public class NewPlayer : MonoBehaviour
     public int animType = 2;
     public Animator anim;
 
+    public GameObject activeBoots;
+    
+
     public GameObject Death;
     public GameObject EnemtCntrl;
 
@@ -296,7 +299,11 @@ public class NewPlayer : MonoBehaviour
 
         if (coll.transform.tag=="boots")
         {
+            
             boots.SetActive(true);
+
+            activeBoots.transform.localPosition =new Vector3(0,0,0);
+            
             BootsIcon.SetActive(true);
             Destroy(coll.gameObject);
         }
