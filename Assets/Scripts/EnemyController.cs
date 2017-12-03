@@ -53,7 +53,10 @@ public class EnemyController : MonoBehaviour {
                 
                 Transform.Instantiate(arr[3], flyEnemy.transform.position, transform.rotation);
                 NumberOfEnemy = NumberOfEnemy + 1;
-                NumberForBonus = NumberForBonus + 1;
+                if (!BootsBonus.activeInHierarchy)
+                {
+                    NumberForBonus = NumberForBonus + 1;
+                }
             }
             if (enemyType >= 3)
             {
@@ -126,7 +129,7 @@ public class EnemyController : MonoBehaviour {
            
         }
 
-        if(NumberForBonus >=3 && (flyEnemy.activeInHierarchy && !boots.activeInHierarchy))
+        if(NumberForBonus >=4 && (flyEnemy.activeInHierarchy && !boots.activeInHierarchy))
         {
             Transform.Instantiate(BootsBonus, StartBonus.transform.position, transform.rotation);
             flyEnemy.SetActive(false);

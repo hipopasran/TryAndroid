@@ -52,7 +52,9 @@ public class bootsScript : MonoBehaviour {
             }
             if (coll.transform.tag=="ground" && time<14)
             {
-                 Transform.Instantiate(AfterJump, AfJumpPos.transform.position, AfterJump.transform.rotation);
+                AudioSource audio = GetComponent<AudioSource>();
+                audio.Play();
+                Transform.Instantiate(AfterJump, AfJumpPos.transform.position, AfterJump.transform.rotation);
             }
     }
             

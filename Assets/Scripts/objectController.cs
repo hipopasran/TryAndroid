@@ -21,6 +21,10 @@ public class objectController : MonoBehaviour {
         vel.x = -1 * speed;
         enemy.velocity = vel;
         
+        if(transform.position.x< -15)
+        {
+            Destroy(this.gameObject);
+        }
 		
 	}
     void OnCollisionEnter2D(Collision2D coll)

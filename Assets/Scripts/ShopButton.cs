@@ -10,8 +10,8 @@ public class ShopButton : MonoBehaviour {
     public GameObject chooseBtn;
     public GameObject buyBtn;
     public Text Cost;
-   
 
+    public ParticleSystem Confetti;
 
     void OnMouseUpAsButton()
     {
@@ -29,6 +29,7 @@ public class ShopButton : MonoBehaviour {
                     selectBtn.SetActive(false);
                     chooseBtn.SetActive(true);
                     buyBtn.SetActive(false);
+                    Confetti.Play();
                     Cost.text = "";
                     PlayerPrefs.SetInt(whichModel.GetComponent<SelectModel>().ModelInTrigger.name  + "active",1);
 
@@ -42,6 +43,7 @@ public class ShopButton : MonoBehaviour {
                 selectBtn.SetActive(false);
                 chooseBtn.SetActive(true);
                 buyBtn.SetActive(false);
+                //Confetti.Play();
                 break;
 
         }

@@ -41,6 +41,7 @@ public class NewPlayer : MonoBehaviour
 
     public GameObject gameover;
     public GameObject coinsSound;
+    public GameObject bonusSound;
     public GameObject theme;
 
     public int animType = 2;
@@ -299,10 +300,11 @@ public class NewPlayer : MonoBehaviour
 
         if (coll.transform.tag=="boots")
         {
-            
+            AudioSource bSound = bonusSound.GetComponent<AudioSource>();
+            bSound.Play();
             boots.SetActive(true);
 
-            activeBoots.transform.localPosition =new Vector3(0,0,0);
+            activeBoots.transform.localPosition =new Vector3(0,0,1);
             
             BootsIcon.SetActive(true);
             Destroy(coll.gameObject);
