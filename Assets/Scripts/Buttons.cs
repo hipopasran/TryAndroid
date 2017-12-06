@@ -141,6 +141,9 @@ public class Buttons : MonoBehaviour {
                         services.SetActive(false);
                         print("123");
                         sign_out.SetActive(true);
+                        Social.ReportScore(PlayerPrefs.GetInt("Points"), "CgkIv-vamLwREAIQAQ", (bool success1) => {
+                            // Удачно или нет?
+                        });
                     }
                     else print("456");
                 });

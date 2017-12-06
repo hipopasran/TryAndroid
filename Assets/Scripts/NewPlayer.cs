@@ -322,7 +322,7 @@ public class NewPlayer : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Points") < points/10)
         {
-            Social.ReportScore(points/10, "CgkIv-vamLwREAIQAQ", (bool success) => {
+            Social.ReportScore(points/10, "CgkIv-vamLwREAIQAQ", (success) => {
                 // Удачно или нет?
             });
             PlayerPrefs.SetInt("Points", points/10);
