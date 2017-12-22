@@ -28,6 +28,7 @@ public class SelectModel : MonoBehaviour {
         //PlayerPrefs.SetString("Ninja", "");
         //PlayerPrefs.SetString("Fashionable guy", "");
         //PlayerPrefs.SetString("Knight", "");
+        //PlayerPrefs.SetString("Santa Claus", "");
 
         PlayerPrefs.SetString("Scroll Objects", "");
 
@@ -36,8 +37,12 @@ public class SelectModel : MonoBehaviour {
             PlayerPrefs.SetString("Knight", "Open");
         }
 
-        // if ((PlayerPrefs.GetString("Knight") != "Choose" && PlayerPrefs.GetString("Knight") != "Open") || PlayerPrefs.GetString("Knight") == "")
-        if ( PlayerPrefs.GetString("Knight") == "")
+        if (PlayerPrefs.GetString("Santa Claus") == "")
+        {
+            PlayerPrefs.SetString("Santa Claus", "Open");
+        }
+            // if ((PlayerPrefs.GetString("Knight") != "Choose" && PlayerPrefs.GetString("Knight") != "Open") || PlayerPrefs.GetString("Knight") == "")
+            if ( PlayerPrefs.GetString("Knight") == "")
             {
                 PlayerPrefs.SetString("Knight", "Choose");
             }

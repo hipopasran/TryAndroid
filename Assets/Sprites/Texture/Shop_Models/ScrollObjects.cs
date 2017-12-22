@@ -23,8 +23,8 @@ public class ScrollObjects : MonoBehaviour {
 
         if (models.transform.position.x > 0)
             models.transform.position = Vector3.MoveTowards(models.transform.position, new Vector3(0f, models.transform.position.y, models.transform.position.z),Time.deltaTime*30f);
-        else if(models.transform.position.x<-17.5f)
-            models.transform.position = Vector3.MoveTowards(models.transform.position, new Vector3(-17.5f, models.transform.position.y, models.transform.position.z), Time.deltaTime * 30f);
+        else if(models.transform.position.x<-20f)
+            models.transform.position = Vector3.MoveTowards(models.transform.position, new Vector3(-20f, models.transform.position.y, models.transform.position.z), Time.deltaTime * 30f);
         else if (!touch)
         {
             models.transform.position = Vector3.MoveTowards(models.transform.position, new Vector3(-(whichModel.GetComponent<SelectModel>().ModelInTrigger.transform.localPosition.x), models.transform.position.y, models.transform.position.z),Time.deltaTime * 15) ;
