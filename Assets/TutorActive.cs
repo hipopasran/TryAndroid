@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class TutorActive : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		if(PlayerPrefs.GetString("Tutor")=="")
-        {
-            gameObject.SetActive(true);
-            PlayerPrefs.SetString("Tutor", "yes");
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-	}
-	
-	
+    public GameObject NewPers;
+    // Use this for initialization
+    void Start()
+    {
+        //PlayerPrefs.SetString("Tutor", "");
+        //PlayerPrefs.SetString("NewPers", "");
+        //if (PlayerPrefs.GetString("Tutor") == "")
+        //{
+        //    gameObject.SetActive(true);
+        //    PlayerPrefs.SetString("Tutor", "yes");
+        //}
+        //else
+        //{
+        //    if (PlayerPrefs.GetString("NewPers") == "")
+        //    {
+        //        NewPers.SetActive(true);
+        //    }
+        //    gameObject.SetActive(false);
+        //}
+
+       
+    }
 }

@@ -17,10 +17,12 @@ public class Buttons : MonoBehaviour {
     private SettingPopup settingPopup;
     [SerializeField]
     private SettingPopup Snow;
-    public bool activePopup=false;
+    public bool activePopup;
     public GameObject Tutor;
+    public GameObject NewPers;
     public int month;
 
+    
    void Awake()
     {
         PlayGamesPlatform.Activate();
@@ -93,8 +95,11 @@ public class Buttons : MonoBehaviour {
 
     void Update()
     {
+
+        
         if(Time.timeScale == 0)
         {
+            
             pause = true;
            
         }
@@ -119,7 +124,7 @@ public class Buttons : MonoBehaviour {
     //    }
     //}
 
-    void OnMouseUpAsButton()
+   public void OnMouseUpAsButton()
     {
         switch (gameObject.name)
         {
@@ -233,6 +238,7 @@ public class Buttons : MonoBehaviour {
                     resume.SetActive(true);
                     restart.SetActive(true);
                     home.SetActive(true);
+                    Popup();
                 }
                else if(pause==true)
                 {
@@ -245,6 +251,9 @@ public class Buttons : MonoBehaviour {
                     resume.SetActive(false);
                     restart.SetActive(false);
                     home.SetActive(false);
+                    Snow.Close();
+                    Popup();
+                    //activePopup = false;
 
                     pause_text.SetActive(false);
                 }
@@ -258,6 +267,9 @@ public class Buttons : MonoBehaviour {
                 restart.SetActive(false);
                 home.SetActive(false);
                 settingPopup.Close();
+                Snow.Close();
+                Popup();
+                //activePopup = false;
                 break;
             case "options":
                 if (activePopup== false)
@@ -276,10 +288,11 @@ public class Buttons : MonoBehaviour {
                         settingPopup.Open();
                     }
                     Tutor.SetActive(false);
-                    activePopup = true;
+                    NewPers.SetActive(false);
+                    
 
                 }
-                else if (activePopup == true)
+                else 
                 {
                     activePopup = false;
                     if (month == 12 || month == 1 || month == 2)
@@ -298,9 +311,15 @@ public class Buttons : MonoBehaviour {
                         pause_text.SetActive(true);
                     }
                    
-                    activePopup = false;
+                    
                 }
+                
                 break;
         }
+    }
+
+    void Popup()
+    {
+        activePopup = !activePopup;
     }
 }

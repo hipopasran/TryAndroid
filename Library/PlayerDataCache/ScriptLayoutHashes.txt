@@ -16,7 +16,7 @@ c24a21b131bfa67be1162db2cba4b52b UnityEngine.Timeline.dll:UnityEngine.Timeline.T
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.NativeShareScript
 caa94984f89e391061e3de6b34e1b5fb Assembly-CSharp.dll:.back_control
 dd5481137759597d614818793c90a7fe Assembly-CSharp.dll:.objectController
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.TutorActive
+0e0fc6a23a43fcfb9539e8dffb3254e5 Assembly-CSharp.dll:.TutorActive
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GameScript
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.UI.dll:UnityEngine.EventSystems.BaseInput
@@ -117,9 +117,9 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.DontDestroySnow
 c21b8e7ebbc9bc06fcacf58e07e0b402 Assembly-CSharp.dll:.CubeFloat
-3390a3376d1d55d6ac05c3ee693a3202 Assembly-CSharp.dll:.NewPlayer
+e31b1210af7a08b327a820aa24a8db61 Assembly-CSharp.dll:.NewPlayer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SoundManager
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MaxScore
+a53b13002a344af5dcac63bcf16477a5 Assembly-CSharp.dll:.MaxScore
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
@@ -132,7 +132,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 40956ca9f449553f2b738eb4be07cb7e Assembly-CSharp.dll:.UIController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.MusicManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.ModelColor
-8a53f5374d6d2c97e1fbbdabc8026214 Assembly-CSharp.dll:.Buttons
+52c7ead39135e56498a2a9e4c4788d0c Assembly-CSharp.dll:.Buttons
 902c5430b1f2ef964ac5aeb5a1a7dc03 Assembly-CSharp.dll:.TestPlayer
 ebf90306dc2fbb8a36c6eee1d5704e7b Assembly-CSharp.dll:.JumpPlayer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SettingPopup
@@ -167,11 +167,13 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.sawScriptNew
 166ee385791747ea2c96651e98ea9fad Assembly-CSharp.dll:.SelectModel
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Snow
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.CostOfModel
 962828c23270c2259cf039fcafc877bf Assembly-CSharp.dll:.roadControll
 4c4d093ecfe3228aa2e1cfb1a1e92ffd Assembly-CSharp.dll:.ScrollObjects
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:GooglePlayGames.OurUtils.PlayGamesHelperObject
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
-1c11c1d5db0564ac98bcba41d4dcc6c3 Assembly-CSharp.dll:.Settings
+9948b56c07340c6c7b1e33da86290615 Assembly-CSharp.dll:.Settings
 3c4bb8bc0ba0101d319323b80e67bc7e Assembly-CSharp.dll:.DeathAnim
+46470900bececabc175d816077a09d9d Assembly-CSharp.dll:.NewPersActive

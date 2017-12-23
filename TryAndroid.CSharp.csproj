@@ -281,6 +281,7 @@
     <Compile Include="Assets\GooglePlayGames\PluginVersion.cs" />
     <Compile Include="Assets\GPGSIds.cs" />
     <Compile Include="Assets\JumpPlayer.cs" />
+    <Compile Include="Assets\NewPersActive.cs" />
     <Compile Include="Assets\Scripts\back_control.cs" />
     <Compile Include="Assets\Scripts\ButtonAnim.cs" />
     <Compile Include="Assets\Scripts\Buttons.cs" />

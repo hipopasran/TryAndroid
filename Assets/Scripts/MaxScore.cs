@@ -8,10 +8,14 @@ using GooglePlayGames;
 public class MaxScore : MonoBehaviour {
 
     public GameObject snow;
+    public GameObject Tutor;
+    public GameObject NewPers;
     private int month;
 
  void Start()
     {
+        PlayerPrefs.SetString("Tutor", "");
+        PlayerPrefs.SetString("NewPers", "");
         PlayGamesPlatform.Activate();
         GetComponent<Text>().text = PlayerPrefs.GetInt("Points").ToString();
         Social.ReportScore(PlayerPrefs.GetInt("Points"), "CgkIv-vamLwREAIQAQ", (success) => {
@@ -27,7 +31,22 @@ public class MaxScore : MonoBehaviour {
         {
             snow.SetActive(false);
         }
+        
     }
-
+    
+    void Update()
+    {
+        if (PlayerPrefs.GetString("Tutor") == "")
+        {
+            Tutor.SetActive(true);
+            PlayerPrefs.SetString("Tutor", "yes");
+        }
+        if ((PlayerPrefs.GetString("NewPers") == "") && (Tutor.gameObject.activeInHierarchy == false))
+        {
+            NewPers.SetActive(true);
+            PlayerPrefs.SetString("NewPers", "yes");
+        }
+    }
+  
    
 }
