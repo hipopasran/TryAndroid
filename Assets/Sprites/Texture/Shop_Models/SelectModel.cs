@@ -68,7 +68,7 @@ public class SelectModel : MonoBehaviour {
     {
         
         nowModel = other.gameObject.name;
-        if (other.gameObject.name != "Scroll Objects")
+        if (other.gameObject.name != "Scroll Objects" && other.gameObject.name!="ImageSnow")
         {
             ModelInTrigger = other.gameObject;
             NameOfModel.text = other.gameObject.name;
@@ -100,7 +100,7 @@ public class SelectModel : MonoBehaviour {
                 chooseModel.SetActive(true);
 
             }
-            else if ((PlayerPrefs.GetString(other.gameObject.name) != "Choose") && (PlayerPrefs.GetString(other.gameObject.name) != "Open") && (other.gameObject.name != "Scroll Objects"))
+            else if ((PlayerPrefs.GetString(other.gameObject.name) != "Choose") && (PlayerPrefs.GetString(other.gameObject.name) != "Open") && (other.gameObject.name != "Scroll Objects") && (other.gameObject.name != "ImageSnow"))
             {
                 selectModel.SetActive(false);
                 buyModel.SetActive(true);

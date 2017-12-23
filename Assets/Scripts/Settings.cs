@@ -6,6 +6,7 @@ public class Settings : MonoBehaviour {
 
 
     public GameObject music_on, music_off, sound_on, sound_off;
+    public GameObject snow_on, snow_off;
     
     void Update()
     {
@@ -29,6 +30,16 @@ public class Settings : MonoBehaviour {
             sound_on.SetActive(true);
             sound_off.SetActive(false);
         }
+        if (PlayerPrefs.GetString("Snow") == "off")
+        {
+            snow_on.SetActive(false);
+            snow_off.SetActive(true);
+        }
+        if (PlayerPrefs.GetString("Snow") == "on")
+        {
+            snow_on.SetActive(true);
+            snow_off.SetActive(false);
+        }
 
     }
 
@@ -51,6 +62,16 @@ public class Settings : MonoBehaviour {
                 break;
             case "sounds_off":
                 PlayerPrefs.SetString("Sound", "on");
+
+                break;
+            case "snow_on":
+                
+                PlayerPrefs.SetString("Snow", "off");
+
+                break;
+            case "snow_off":
+                
+                PlayerPrefs.SetString("Snow", "on");
 
                 break;
         }

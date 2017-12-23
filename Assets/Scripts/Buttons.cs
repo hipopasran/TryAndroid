@@ -15,8 +15,11 @@ public class Buttons : MonoBehaviour {
     public GameObject resume,restart,pause1,home,rating,pause_text,options,stats,rate,vk,facebook,achiv,services,sign_out;
     [SerializeField]
     private SettingPopup settingPopup;
+    [SerializeField]
+    private SettingPopup Snow;
     public bool activePopup=false;
     public GameObject Tutor;
+    public int month;
 
    void Awake()
     {
@@ -25,6 +28,7 @@ public class Buttons : MonoBehaviour {
 
     void Start()
     {
+        month = System.DateTime.Now.Month;
         //    // pause = false;
         //    Time.timeScale = 1;
 
@@ -258,20 +262,37 @@ public class Buttons : MonoBehaviour {
             case "options":
                 if (activePopup== false)
                 {
+                    activePopup = true;
                     if (Application.loadedLevelName == "play")
                     {
                         pause_text.SetActive(false);
                     }
-                    settingPopup.Open();
-                    activePopup = true;
+                    if (month == 12 || month == 1 || month == 2)
+                    {
+                        Snow.Open();
+                    }
+                    else
+                    {
+                        settingPopup.Open();
+                    }
                     Tutor.SetActive(false);
-
+                    activePopup = true;
 
                 }
                 else if (activePopup == true)
                 {
+                    activePopup = false;
+                    if (month == 12 || month == 1 || month == 2)
+                    {
+                        Snow.Close();
+                    }
+                    else
+                    {
+                        settingPopup.Close();
+                        
+                    }
 
-                    settingPopup.Close();
+                    
                     if (Application.loadedLevelName == "play")
                     {
                         pause_text.SetActive(true);

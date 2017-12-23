@@ -16,6 +16,14 @@ public class DeathAnim : MonoBehaviour {
         rb.AddForce(new Vector2(x,y) * 2.5f, ForceMode2D.Impulse);
 
     }
+
+    void OnCollisionEnter2d(Collider2D other)
+    {
+        if(other.transform.tag=="enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 	
 	// Update is called once per frame
 	

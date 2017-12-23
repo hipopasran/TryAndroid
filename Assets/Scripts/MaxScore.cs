@@ -7,6 +7,9 @@ using GooglePlayGames;
 
 public class MaxScore : MonoBehaviour {
 
+    public GameObject snow;
+    private int month;
+
  void Start()
     {
         PlayGamesPlatform.Activate();
@@ -15,5 +18,16 @@ public class MaxScore : MonoBehaviour {
             // Удачно или нет?
         });
 
+        month = System.DateTime.Now.Month;
+        if ((month == 12 || month <= 2))
+        {
+            snow.SetActive(true);
+        }
+        else
+        {
+            snow.SetActive(false);
+        }
     }
+
+   
 }

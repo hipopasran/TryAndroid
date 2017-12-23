@@ -314,6 +314,7 @@
     <Compile Include="Assets\Scripts\TestPlayer.cs" />
     <Compile Include="Assets\Scripts\TextFade.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Snow.cs" />
     <Compile Include="Assets\Sprites\Texture\player_run\sawScriptNew.cs" />
     <Compile Include="Assets\Sprites\Texture\Shop_Models\ScrollObjects.cs" />
     <Compile Include="Assets\Sprites\Texture\Shop_Models\SelectModel.cs" />

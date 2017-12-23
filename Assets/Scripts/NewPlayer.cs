@@ -51,6 +51,8 @@ public class NewPlayer : MonoBehaviour
     
 
     public GameObject Death;
+    public GameObject Death_NewY;
+    public int month;
     public GameObject EnemtCntrl;
 
     public GameObject boots;
@@ -58,6 +60,8 @@ public class NewPlayer : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        month = System.DateTime.Now.Month;
+        Debug.Log(month);
         PlayGamesPlatform.Activate();
         anim = GetComponent<Animator>();
 
@@ -274,10 +278,19 @@ public class NewPlayer : MonoBehaviour
             restart.SetActive(true);
             home.SetActive(true);
             pause.SetActive(false);
-            
-            Death.transform.position = gameObject.transform.position;
-            Destroy(gameObject);
-            Death.SetActive(true);
+
+            if (PlayerPrefs.GetString("AnimType") == "Santa Claus")
+            {
+                Death_NewY.transform.position = gameObject.transform.position;
+                Destroy(gameObject);
+                Death_NewY.SetActive(true);
+            }
+            else
+            {
+                Death.transform.position = gameObject.transform.position;
+                Destroy(gameObject);
+                Death.SetActive(true);
+            }
             pointText.text = "";
 
 
