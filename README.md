@@ -1,2 +1,2 @@
 # TryAndroid
-first adroid game
+first android game
